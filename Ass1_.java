@@ -67,12 +67,12 @@ public class Ass1_ {
 
   
    public static int agew(String age) {
-            int i, i2=-1;
-            int num;
+           int i2=-1;
+            int num=0;
            String age1;
 
             //The program check numbers of years.
-            for (i = 0; i < 101; i++) {
+            for (int i = 0; i < 101; i++) {
             age1=String.valueOf(i); //int to String
             if ( age.equals(age1)){ 
             i2=0;
@@ -81,14 +81,16 @@ public class Ass1_ {
              if (i2==-1 && i==100)
             {
                i2=1; 
+               
+               
                if (i2==1)
             { System.out.println("\nError this isn't a number or incorect the number of years. \n");
                  System.exit(0);
+            
             }
                 }
             }
-   
-
+               
 
                 num = Integer.parseInt(age);   //String to int
                 
@@ -115,7 +117,7 @@ Tiago Murphy
 M
   */    
 
-        Scanner myKB = new Scanner(System.in);
+        
 
         checkpeople checkpeople = new checkpeople();
 
@@ -124,8 +126,7 @@ M
         String MF;
 
         boolean founded = false;
-            System.out.println("Please enter your full name. ");
-            checkpeople.x = myKB.nextLine();
+           
 
 
 
@@ -154,26 +155,36 @@ message that tells the user clearly why it is not valid.
       while (myReader.hasNextLine()) {//I have created the loop while.
         String data = myReader.nextLine();//Here the program reads the people.txt file
 
-        if ( checkpeople.x.equals(data)){
+       
             //got it right
             System.out.print(data);//Here the program show the data of the file.
 
             String data1 = myReader.nextLine();
             System.out.print(" "+data1+" ");
+           
+            
+             String data2 = myReader.nextLine();
+            System.out.print(data2);
+
+            String age=data2;
+    
+            
             MF=data1;
+            
+            
             if (MF.equals("M")){
                       String filename = "output.txt"; //this is to store the name of my file rather than having to re-type it several times
 
         //Step 1 -- I need a BufferedWriter and FileWriter
-
+            
         try {
-
+ 
 
             BufferedWriter myWriter = new BufferedWriter(new FileWriter(filename, true));
             //true = append to the file
             //false = overwrite the file
 
-            myWriter.write("MR, M"); //the write method will  write a STRING to the file
+            myWriter.write(data" MR, M"); //the write method will  write a STRING to the file
             myWriter.newLine();
 
 
@@ -200,7 +211,7 @@ message that tells the user clearly why it is not valid.
             //true = append to the file
             //false = overwrite the file
 
-            myWriter.write("MS, F"); //the write method will  write a STRING to the file
+            myWriter.write(data" MS, F"); //the write method will  write a STRING to the file
             myWriter.newLine();
 
 
@@ -228,7 +239,7 @@ message that tells the user clearly why it is not valid.
             //true = append to the file
             //false = overwrite the file
 
-            myWriter.write("MX, T"); //the write method will  write a STRING to the file
+            myWriter.write(data" MX, T"); //the write method will  write a STRING to the file
             myWriter.newLine();
 
 
@@ -250,10 +261,7 @@ message that tells the user clearly why it is not valid.
 
              }
 
-            String data2 = myReader.nextLine();
-            System.out.print(data2);
-
-            String age=data2;
+           
             
             int num;
             num = agew(age);//I use the agew function to check numbers of years.
@@ -370,14 +378,8 @@ College
             //must have failed - ran out of attempts
 
         }
-      }
-      myReader.close();
-    } catch (FileNotFoundException e) {
-      System.out.println("An error occurred.");//Here the program has one catch where error that can show: The file doesn't exist.
-       System.exit(0);
-      e.printStackTrace();
-
-    }
+      
+   
     System.out.println();       
     System.out.println(founded);
     //The program check founded the name or not.
@@ -414,6 +416,15 @@ College
              System.exit(0);
 
         }
+  }
+    }   
+               myReader.close();
+               }
+     catch (FileNotFoundException e) {
+      System.out.println("An error occurred.");//Here the program has one catch where error that can show: The file doesn't exist.
+       System.exit(0);
+      e.printStackTrace();
 
+    }
 
 }
