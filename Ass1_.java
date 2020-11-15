@@ -66,13 +66,14 @@ import java.io.IOException;//IOException is the base class for exceptions thrown
 public class Ass1_ {
 
   
-   public static int agew(String age) {
-           int i2=-1;
-            int num=0;
+   public static int agew(String age, int count2, int count) {
+            int i, i2=-1;
+            int num;
+            
            String age1;
 
             //The program check numbers of years.
-            for (int i = 0; i < 101; i++) {
+            for (i = 0; i < 101; i++) {
             age1=String.valueOf(i); //int to String
             if ( age.equals(age1)){ 
             i2=0;
@@ -81,16 +82,24 @@ public class Ass1_ {
              if (i2==-1 && i==100)
             {
                i2=1; 
-               
-               
                if (i2==1)
-            { System.out.println("\nError this isn't a number or incorect the number of years. \n");
+            { int  count2=count/3;
+               if (count2==count)
+                {
+                     
+                 System.out.println();
                  System.exit(0);
+                }
             
+                System.out.println("\nError this isn't a number or incorect the number of years. \n");
+                System.out.println();
+                System.exit(0);
+                
             }
                 }
             }
-               
+   
+
 
                 num = Integer.parseInt(age);   //String to int
                 
@@ -104,7 +113,8 @@ public class Ass1_ {
         //I have created the myObj.x.
         MyAuthor myObjl = new MyAuthor();
         System.out.println(myObjl.x);//I have created classes and object with the author with my name of the Ass1 program.
-
+        
+        int count2=0;
 
   /*     Line 1 --- <firstname> <surname>
 Line 2 --- <age>
@@ -148,6 +158,32 @@ message that tells the user clearly why it is not valid.
 <title> <surname>, <first initial>
 <status>
 */
+  
+  int count = 0;
+
+    try {
+      // create a new file object
+      File file = new File("people.txt");
+
+      // create an object of Scanner
+      // associated with the file
+      Scanner sc = new Scanner(file);
+
+      // read each line and
+      // count number of lines
+      while(sc.hasNextLine()) {
+        sc.nextLine();
+        count++;
+      }
+      System.out.println("Total Number of Lines: " + count);
+      
+
+      // close scanner
+      sc.close();
+    } catch (Exception e) {
+      e.getStackTrace();
+    }
+  
 
            try {
       File myObj = new File("people.txt");
@@ -171,6 +207,10 @@ message that tells the user clearly why it is not valid.
             
             MF=data1;
             
+          
+            checkpeople.x=data;
+
+            
             
             if (MF.equals("M")){
                       String filename = "output.txt"; //this is to store the name of my file rather than having to re-type it several times
@@ -183,9 +223,11 @@ message that tells the user clearly why it is not valid.
             BufferedWriter myWriter = new BufferedWriter(new FileWriter(filename, true));
             //true = append to the file
             //false = overwrite the file
-
-            myWriter.write(data" MR, M"); //the write method will  write a STRING to the file
-            myWriter.newLine();
+            
+            myWriter.write(" MR ")
+            myWriter.write(checkpeople.x); //the write method will  write a STRING to the file
+            myWriter.write(" M ") //the write method will  write a STRING to the file
+            
 
 
 
@@ -210,10 +252,12 @@ message that tells the user clearly why it is not valid.
             BufferedWriter myWriter = new BufferedWriter(new FileWriter(filename, true));
             //true = append to the file
             //false = overwrite the file
-
-            myWriter.write(data" MS, F"); //the write method will  write a STRING to the file
-            myWriter.newLine();
-
+            
+            
+            
+            myWriter.write(" MS ")
+            myWriter.write(checkpeople.x); //the write method will  write a STRING to the file
+            myWriter.write(" F ") //the write method will  write a STRING to the file
 
 
 
@@ -238,9 +282,10 @@ message that tells the user clearly why it is not valid.
             BufferedWriter myWriter = new BufferedWriter(new FileWriter(filename, true));
             //true = append to the file
             //false = overwrite the file
-
-            myWriter.write(data" MX, T"); //the write method will  write a STRING to the file
-            myWriter.newLine();
+            myWriter.write(" MX ")
+            myWriter.write(checkpeople.x); //the write method will  write a STRING to the file
+            myWriter.write(" T ") //the write method will  write a STRING to the file
+            
 
 
 
@@ -264,23 +309,25 @@ message that tells the user clearly why it is not valid.
            
             
             int num;
-            num = agew(age);//I use the agew function to check numbers of years.
+            count2++;
+            num = agew(age, count2, count);//I use the agew function to check numbers of years.
+            
+         
+           
+        
 
-
-
-
-
-           System.out.println();
+           
  /*           The status must be “School” if the age was 18 or less, or “College” if the age was between 19
 and 25, or “Worker” if the age was between 26 and 66, or “Retired” if the age is 67 or over.
 Example output: (based on Tiago Murphy from above)
 Mr. Murphy, T
 College 
-*/
+*/    
+  System.out.println();
 
-            String filename = "output.txt"; 
+           String  filename = "output.txt"; 
           
-            if (num>18)
+            if (num>18 && num<67)
             {
                //this is to store the name of my file rather than having to re-type it several times
 
@@ -292,10 +339,9 @@ College
             BufferedWriter myWriter = new BufferedWriter(new FileWriter(filename, true));
             //true = append to the file
             //false = overwrite the file
-
+            myWriter.newLine();
             myWriter.write("Work"); //the write method will  write a STRING to the file
             myWriter.newLine();
-
 
 
 
@@ -304,13 +350,13 @@ College
         }
         catch(Exception e){
 
-            System.out.println("Error writing to file " +  filename);
+            
              System.exit(0);
         } 
             }   
-            else if (num<18)
+          else  if (num<18)
             {
-               String filename = "output.txt"; //this is to store the name of my file rather than having to re-type it several times
+                filename = "output.txt"; //this is to store the name of my file rather than having to re-type it several times
 
         //Step 1 -- I need a BufferedWriter and FileWriter
 
@@ -320,7 +366,8 @@ College
             BufferedWriter myWriter = new BufferedWriter(new FileWriter(filename, true));
             //true = append to the file
             //false = overwrite the file
-
+            
+            myWriter.newLine();
             myWriter.write("College"); //the write method will  write a STRING to the file
             myWriter.newLine();
 
@@ -336,9 +383,9 @@ College
              System.exit(0);
         } 
             }    
-        else if (num>=67)
+       else  if (num>=67)
             {
-               String filename = "output.txt"; //this is to store the name of my file rather than having to re-type it several times
+               filename = "output.txt"; //this is to store the name of my file rather than having to re-type it several times
 
         //Step 1 -- I need a BufferedWriter and FileWriter
 
@@ -348,7 +395,7 @@ College
             BufferedWriter myWriter = new BufferedWriter(new FileWriter(filename, true));
             //true = append to the file
             //false = overwrite the file
-
+            myWriter.newLine();
             myWriter.write("Retired"); //the write method will  write a STRING to the file
             myWriter.newLine();
 
@@ -374,10 +421,15 @@ College
             founded = true;
 
         }
-        else {
-            //must have failed - ran out of attempts
-
-        }
+      
+      int  count3=count/3;
+               if (count3==count)
+                {
+                     
+                 System.out.println();
+                 System.exit(0);
+                }
+      
       
    
     System.out.println();       
@@ -385,39 +437,9 @@ College
     //The program check founded the name or not.
 
 
-    if (founded){
-        {
-
-
-        //<surname>    
-
-
-        String filename = "output.txt"; //this is to store the name of my file rather than having to re-type it several times
-
-        //Step 1 -- I need a BufferedWriter and FileWriter
-
-        try {
-
-
-            BufferedWriter myWriter = new BufferedWriter(new FileWriter(filename, true));
-            //true = append to the file
-            //false = overwrite the file
-
-            myWriter.write(checkpeople.x); //the write method will  write a STRING to the file
-
-            myWriter.newLine();
-
-
-            myWriter.close(); //IMPORTANT -- this saves changes  to the file
-        }
-        catch(Exception e){
-
-            System.out.println("Error writing to file " +  filename);
-             System.exit(0);
-
-        }
-  }
-    }   
+    
+  
+     
                myReader.close();
                }
      catch (FileNotFoundException e) {
