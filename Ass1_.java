@@ -430,7 +430,12 @@ College
                  System.exit(0);
                 }
       
-      
+        else
+             {
+                System.out.println("Error the incorrect Status.");
+                 System.exit(0);
+
+             }
    
     System.out.println();       
     System.out.println(founded);
