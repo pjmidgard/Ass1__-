@@ -78,7 +78,7 @@ public class Ass1_ {
             if ( age.equals(age1)){ 
             i2=0;
             founded = true;
-            System.out.println(founded);
+            System.out.print(" "); System.out.print(founded); System.out.print(" ");
                     }
              if (i2==-1 && i==100)
             {
@@ -92,7 +92,7 @@ public class Ass1_ {
                  System.exit(0);
                 }
                  founded = false;
-                 System.out.println(founded);
+                 System.out.print(" "); System.out.print(founded); System.out.print(" ");
                 
                  
                 System.out.println("\nError this isn't a number or incorect the number of years. \n");
@@ -180,14 +180,15 @@ message that tells the user clearly why it is not valid.
         count++;
       }
       System.out.println("Total Number of Lines: " + count);
-      
-
+      founded = true;
+       System.out.print(" "); System.out.print(founded); System.out.print(" ");
+     System.out.println(" ");
       // close scanner
       sc.close();
     } catch (Exception e) {
         
       founded = false;
-      System.out.println(founded);
+      System.out.print(" "); System.out.print(founded); System.out.print(" ");
       e.getStackTrace();
     }
   
@@ -226,7 +227,7 @@ message that tells the user clearly why it is not valid.
             
         try {
              founded = true;
-            System.out.println(founded);
+            System.out.print(" "); System.out.print(founded); System.out.print(" ");
             BufferedWriter myWriter = new BufferedWriter(new FileWriter(filename, true));
             //true = append to the file
             //false = overwrite the file
@@ -244,7 +245,8 @@ message that tells the user clearly why it is not valid.
         }
         catch(Exception e){
            founded = false;
-           System.out.println(founded);
+           System.out.print(" "); System.out.print(founded); 
+           System.out.print(" ");
             System.out.println("Error writing to file " +  filename);
              System.exit(0);
         }
@@ -257,7 +259,7 @@ message that tells the user clearly why it is not valid.
         try {
 
             founded = true;
-            System.out.println(founded);
+            System.out.print(" "); System.out.print(founded); System.out.print(" ");
             BufferedWriter myWriter = new BufferedWriter(new FileWriter(filename, true));
             //true = append to the file
             //false = overwrite the file
@@ -275,7 +277,7 @@ message that tells the user clearly why it is not valid.
         }
         catch(Exception e){
             founded = false;
-            System.out.println(founded);
+            System.out.print(" "); System.out.print(founded); System.out.print(" ");
             System.out.println("Error writing to file " +  filename);
              System.exit(0);
         }
@@ -289,7 +291,7 @@ message that tells the user clearly why it is not valid.
         try {
 
            founded = true;
-           System.out.println(founded);
+           System.out.print(" "); System.out.print(founded); System.out.print(" ");
             BufferedWriter myWriter = new BufferedWriter(new FileWriter(filename, true));
             //true = append to the file
             //false = overwrite the file
@@ -306,7 +308,7 @@ message that tells the user clearly why it is not valid.
         }
         catch(Exception e){
             founded = false;
-            System.out.println(founded);
+            System.out.print(" "); System.out.print(founded); System.out.print(" ");
             System.out.println("Error writing to file " +  filename);
              System.exit(0);
         }
@@ -314,7 +316,7 @@ message that tells the user clearly why it is not valid.
             else
              { founded = false;
              
-               System.out.println(founded);
+               System.out.print(" "); System.out.print(founded); System.out.print(" ");
                 System.out.println("Error the incorrect gender.");
                  System.exit(0);
 
@@ -350,7 +352,8 @@ College
         try {
 
             founded = true;
-            System.out.println(founded);
+            System.out.print(" "); System.out.print(founded); System.out.print(" ");
+            
             BufferedWriter myWriter = new BufferedWriter(new FileWriter(filename, true));
             //true = append to the file
             //false = overwrite the file
@@ -366,7 +369,7 @@ College
         catch(Exception e){
 
              founded = false;
-             System.out.println(founded);
+             System.out.print(" "); System.out.print(founded); System.out.print(" ");
              System.exit(0);
         } 
             }   
@@ -379,7 +382,7 @@ College
         try {
 
             founded = true;
-            System.out.println(founded);
+            System.out.print(" "); System.out.print(founded); System.out.print(" ");
             BufferedWriter myWriter = new BufferedWriter(new FileWriter(filename, true));
             //true = append to the file
             //false = overwrite the file
@@ -396,7 +399,7 @@ College
         }
         catch(Exception e){
             founded = false;
-            System.out.println(founded);
+            System.out.print(" "); System.out.print(founded); System.out.print(" ");
             System.out.println("Error writing to file " +  filename);
              System.exit(0);
         } 
@@ -409,7 +412,7 @@ College
 
         try {
             founded = true;
-            System.out.println(founded);
+            System.out.print(" "); System.out.print(founded); System.out.print(" ");
 
             BufferedWriter myWriter = new BufferedWriter(new FileWriter(filename, true));
             //true = append to the file
@@ -426,7 +429,7 @@ College
         }
         catch(Exception e){
             founded = false;
-            System.out.println(founded);
+            System.out.print(" "); System.out.print(founded); System.out.print(" ");
             System.out.println("Error writing to file " +  filename);
              System.exit(0);
         } 
@@ -458,7 +461,7 @@ College
         
    
     System.out.println();       
-    System.out.println(founded);
+    System.out.print(" "); System.out.print(founded); System.out.print(" ");  System.out.println();
     //The program check founded the name or not.
 
 
@@ -469,7 +472,7 @@ College
                }
      catch (FileNotFoundException e) {
      founded = false;
-     System.out.println(founded);
+     System.out.print(" "); System.out.print(founded); System.out.print(" ");
          System.out.println("An error occurred.");//Here the program has one catch where error that can show: The file doesn't exist.
        System.exit(0);
       e.printStackTrace();
