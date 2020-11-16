@@ -66,7 +66,7 @@ import java.io.IOException;//IOException is the base class for exceptions thrown
 public class Ass1_ {
 
   
-   public static int agew(String age, int count2, int count) {
+   public static int agew(String age, int count2, int count, boolean founded ) {
             int i, i2=-1;
             int num;
             
@@ -77,7 +77,8 @@ public class Ass1_ {
             age1=String.valueOf(i); //int to String
             if ( age.equals(age1)){ 
             i2=0;
-
+            founded = true;
+            System.out.println(founded);
                     }
              if (i2==-1 && i==100)
             {
@@ -86,11 +87,14 @@ public class Ass1_ {
             { int  count2=count/3;
                if (count2==count)
                 {
-                     
+                  
                  System.out.println();
                  System.exit(0);
                 }
-            
+                 founded = false;
+                 System.out.println(founded);
+                
+                 
                 System.out.println("\nError this isn't a number or incorect the number of years. \n");
                 System.out.println();
                 System.exit(0);
@@ -181,6 +185,9 @@ message that tells the user clearly why it is not valid.
       // close scanner
       sc.close();
     } catch (Exception e) {
+        
+      founded = false;
+      System.out.println(founded);
       e.getStackTrace();
     }
   
@@ -218,8 +225,8 @@ message that tells the user clearly why it is not valid.
         //Step 1 -- I need a BufferedWriter and FileWriter
             
         try {
- 
-
+             founded = true;
+            System.out.println(founded);
             BufferedWriter myWriter = new BufferedWriter(new FileWriter(filename, true));
             //true = append to the file
             //false = overwrite the file
@@ -236,7 +243,8 @@ message that tells the user clearly why it is not valid.
 
         }
         catch(Exception e){
-
+           founded = false;
+           System.out.println(founded);
             System.out.println("Error writing to file " +  filename);
              System.exit(0);
         }
@@ -248,7 +256,8 @@ message that tells the user clearly why it is not valid.
 
         try {
 
-
+            founded = true;
+            System.out.println(founded);
             BufferedWriter myWriter = new BufferedWriter(new FileWriter(filename, true));
             //true = append to the file
             //false = overwrite the file
@@ -265,7 +274,8 @@ message that tells the user clearly why it is not valid.
 
         }
         catch(Exception e){
-
+            founded = false;
+            System.out.println(founded);
             System.out.println("Error writing to file " +  filename);
              System.exit(0);
         }
@@ -278,7 +288,8 @@ message that tells the user clearly why it is not valid.
 
         try {
 
-
+           founded = true;
+           System.out.println(founded);
             BufferedWriter myWriter = new BufferedWriter(new FileWriter(filename, true));
             //true = append to the file
             //false = overwrite the file
@@ -294,13 +305,16 @@ message that tells the user clearly why it is not valid.
 
         }
         catch(Exception e){
-
+            founded = false;
+            System.out.println(founded);
             System.out.println("Error writing to file " +  filename);
              System.exit(0);
         }
             }
             else
-             {
+             { founded = false;
+             
+               System.out.println(founded);
                 System.out.println("Error the incorrect gender.");
                  System.exit(0);
 
@@ -310,7 +324,7 @@ message that tells the user clearly why it is not valid.
             
             int num;
             count2++;
-            num = agew(age, count2, count);//I use the agew function to check numbers of years.
+            num = agew(age, count2, count, founded);//I use the agew function to check numbers of years.
             
          
            
@@ -335,7 +349,8 @@ College
 
         try {
 
-
+            founded = true;
+            System.out.println(founded);
             BufferedWriter myWriter = new BufferedWriter(new FileWriter(filename, true));
             //true = append to the file
             //false = overwrite the file
@@ -350,7 +365,8 @@ College
         }
         catch(Exception e){
 
-            
+             founded = false;
+             System.out.println(founded);
              System.exit(0);
         } 
             }   
@@ -362,7 +378,8 @@ College
 
         try {
 
-
+            founded = true;
+            System.out.println(founded);
             BufferedWriter myWriter = new BufferedWriter(new FileWriter(filename, true));
             //true = append to the file
             //false = overwrite the file
@@ -378,7 +395,8 @@ College
 
         }
         catch(Exception e){
-
+            founded = false;
+            System.out.println(founded);
             System.out.println("Error writing to file " +  filename);
              System.exit(0);
         } 
@@ -390,7 +408,8 @@ College
         //Step 1 -- I need a BufferedWriter and FileWriter
 
         try {
-
+            founded = true;
+            System.out.println(founded);
 
             BufferedWriter myWriter = new BufferedWriter(new FileWriter(filename, true));
             //true = append to the file
@@ -406,7 +425,8 @@ College
 
         }
         catch(Exception e){
-
+            founded = false;
+            System.out.println(founded);
             System.out.println("Error writing to file " +  filename);
              System.exit(0);
         } 
@@ -414,11 +434,16 @@ College
 
             }
 
+          else
+             {  founded = false;
+                System.out.println("Error the incorrect Status.");
+                 System.exit(0);
+
+             }          
 
 
 
-
-            founded = true;
+            
 
         }
       
@@ -430,12 +455,7 @@ College
                  System.exit(0);
                 }
       
-        else
-             {
-                System.out.println("Error the incorrect Status.");
-                 System.exit(0);
-
-             }
+        
    
     System.out.println();       
     System.out.println(founded);
@@ -448,7 +468,9 @@ College
                myReader.close();
                }
      catch (FileNotFoundException e) {
-      System.out.println("An error occurred.");//Here the program has one catch where error that can show: The file doesn't exist.
+     founded = false;
+     System.out.println(founded);
+         System.out.println("An error occurred.");//Here the program has one catch where error that can show: The file doesn't exist.
        System.exit(0);
       e.printStackTrace();
 
